@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/egw-reactjs/static/css/main.5f361e03.chunk.css",
+    "main.js": "/egw-reactjs/static/js/main.26862acb.chunk.js",
+    "main.js.map": "/egw-reactjs/static/js/main.26862acb.chunk.js.map",
+    "runtime-main.js": "/egw-reactjs/static/js/runtime-main.446343c6.js",
+    "runtime-main.js.map": "/egw-reactjs/static/js/runtime-main.446343c6.js.map",
+    "static/js/2.ca35798e.chunk.js": "/egw-reactjs/static/js/2.ca35798e.chunk.js",
+    "static/js/2.ca35798e.chunk.js.map": "/egw-reactjs/static/js/2.ca35798e.chunk.js.map",
+    "index.html": "/egw-reactjs/index.html",
+    "precache-manifest.cbc3ae14cd85073d5e361f54524e66fa.js": "/egw-reactjs/precache-manifest.cbc3ae14cd85073d5e361f54524e66fa.js",
+    "service-worker.js": "/egw-reactjs/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/egw-reactjs/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.ca35798e.chunk.js.LICENSE.txt": "/egw-reactjs/static/js/2.ca35798e.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/egw-reactjs/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.446343c6.js",
+    "static/js/2.ca35798e.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.26862acb.chunk.js"
+  ]
+}
