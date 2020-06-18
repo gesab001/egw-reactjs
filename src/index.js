@@ -39,6 +39,9 @@ class Index extends React.Component {
                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                       <li class="nav-item">
+                          <Link class="nav-link" to={"/"}>Home</Link>
+                      </li> 
+                      <li class="nav-item">
                           <Link class="nav-link" to={"/slideshow/"+this.state.selectedVoice}>Slideshow</Link>
                       </li>   
                       <li class="nav-item">
