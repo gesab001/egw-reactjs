@@ -1,7 +1,7 @@
 import React from 'react';
-import List from './List/List';
+import Car from '../Car/Car';
 
-class App extends React.Component {
+class Booklist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,10 +42,10 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <List booklist={items}/>
+        <Car booklist={items}/>
 
       );
     }
   }
 }
-export default App;
+export default Booklist;

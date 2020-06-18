@@ -1,7 +1,7 @@
 import React from 'react';
-import List from './List/List';
+import List from '../List/List';
 
-class App extends React.Component {
+class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,4 +48,4 @@ class App extends React.Component {
     }
   }
 }
-export default App;
+export default Main;

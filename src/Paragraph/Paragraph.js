@@ -1,25 +1,24 @@
 import React from 'react';
-import List from './List/List';
-
-class App extends React.Component {
+import TextToSpeech from '../TextToSpeech/TextToSpeech';
+class Paragraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
       items: []
-    }; 
+    };
   }
 
   componentDidMount() {
-    const url = "https://gesab001.github.io/assets/egw/booklist.json";
+    const url = "https://gesab001.github.io/assets/egw/book_"+this.props.bookcode+"_id_"+this.props.id+".json";
     fetch(url)
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            items: result
           });
         },
         // Note: it's important to handle errors here
@@ -42,10 +41,11 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <List booklist={items}/>
+
+        <div><p>{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</p><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
 
       );
     }
   }
 }
-export default App;
+export default Paragraph;
