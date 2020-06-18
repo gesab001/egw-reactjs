@@ -42,7 +42,7 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <List booklist={items}/>
+        <List selectedVoice={this.props.selectedVoice} booklist={items}/>
 
       );
     }

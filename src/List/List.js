@@ -23,12 +23,9 @@ class List extends React.Component {
 
     return (
          <div>
-                <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-                    <VoicesList selectedVoice={this.handleOnChange.bind(this)}/>
-                </nav>
-          
+ 
                 <div class="container-fluid">  {this.state.booklist.map((value,index) =>  {
-                      return <div>{this.state.selectedVoice}<h1>{value.title}</h1><Paragraph selectedVoice={this.state.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div>
+                      return <div><h1>{value.title}</h1><Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div>
                   })}</div>
          </div>);
   }
