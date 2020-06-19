@@ -9,6 +9,7 @@ class Slides extends React.Component {
       error: null,
       isLoaded: false,
       booklist: [],
+      imagelist: [],
       selectedVoice: 27
     };
   }
@@ -20,6 +21,7 @@ class Slides extends React.Component {
 
   render() {
     this.state.booklist = this.props.booklist;
+    this.state.imagelist = this.props.imagelist;
     const items = this.state.booklist;
 
     return (
@@ -35,7 +37,7 @@ class Slides extends React.Component {
 
                     <div class="carousel-inner">
    <div class="carousel-item active">
-                          <img src="https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg" alt="Los Angeles" width="1100" height="500"/>
+                          <img class="d-block w-100" src="https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg" alt="Los Angeles"/>
                           <div class="carousel-caption">
                             <h3>today</h3>
                             <p>Read now</p>
@@ -43,7 +45,7 @@ class Slides extends React.Component {
                         </div>
  {this.state.booklist.map((value,index) =>  {
                        return <div class="carousel-item">
-                                 <img src="https://thumbs-prod.si-cdn.com/Rd7mIl8CQjsm86vJ4PQGU_xFi7A=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/53/27/5327288d-9a58-4375-9672-6db0df0222cf/42-72917447.jpg" alt="New York" width="1100" height="500"/>
+                                 <img class="d-block w-100" src={this.state.imagelist["DA"][0]} alt="New York" />
                                  <div class="carousel-caption">
                                       <h1 class="shadow">{value.title}</h1>
                                       <Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
@@ -59,15 +61,7 @@ class Slides extends React.Component {
                   <a class="carousel-control-next" href="#demo" data-slide="next">
                     <span class="carousel-control-next-icon"></span>
                   </a>
-                    {this.state.booklist.map((value,index) =>  {
-                       return <div class="carousel-item">
-                                 <img src="https://thumbs-prod.si-cdn.com/Rd7mIl8CQjsm86vJ4PQGU_xFi7A=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/53/27/5327288d-9a58-4375-9672-6db0df0222cf/42-72917447.jpg" alt="New York" width="1100" height="500"/>
-                                 <div class="carousel-caption">
-                                      <h1>{value.title}</h1>
-                                      <Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
-                                 </div> 
-                             </div>
-                    })}
+                   
              </div>
          </div>);
   }

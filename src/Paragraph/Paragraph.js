@@ -37,6 +37,10 @@ class Paragraph extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
+    const fontSize = localStorage.getItem("fontsize");
+    const mystyle = {
+          fontSize: fontSize
+        };
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -44,7 +48,7 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><h2 class="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
+        <div><h2 style={mystyle} class="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
 
       );
     }

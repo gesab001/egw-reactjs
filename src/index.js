@@ -14,7 +14,8 @@ class Index extends React.Component {
       error: null,
       isLoaded: false,
       booklist: [],
-      selectedVoice: 27
+      selectedVoice: 27,
+      slide_font_size: 2
     };
   }
 
@@ -24,9 +25,26 @@ class Index extends React.Component {
     });
   }
   
+  biggerFont=(e)=> {
+    const newsize = this.state.slide_font_size + 0.2;
+    this.setState({
+      slide_font_size: newsize
+    }); 
+    const fontsizestring = newsize + "vw";
+    localStorage.setItem("fontsize", fontsizestring);
+  }
 
+  smallerFont=(e)=> {
+    const newsize = this.state.slide_font_size - 0.2;
+    this.setState({
+      slide_font_size: newsize
+    }); 
+    const fontsizestring = newsize + "vw";
+    localStorage.setItem("fontsize", fontsizestring);
+  }
 
   render() {
+
       return (
         <div>      
           <Router>
@@ -47,7 +65,15 @@ class Index extends React.Component {
                       <li class="nav-item">
                           <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
                       </li>
-                     
+                     <li class="nav-item">
+                          <button onClick={this.biggerFont.bind(this)}>+</button>
+                      </li>
+                     <li class="nav-item">
+                          <button onClick={this.smallerFont.bind(this)}>-</button>
+                      </li>
+                        <li class="nav-item">
+
+                      </li>                    
                     </ul>
                   </div>  
                 </nav>
