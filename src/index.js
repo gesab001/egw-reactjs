@@ -18,7 +18,7 @@ class Index extends React.Component {
     };
   }
 
-  handleOnChange=(e)=> {
+  updateSelectedVoice=(e)=> {
     this.setState({
       selectedVoice: e
     });
@@ -39,24 +39,28 @@ class Index extends React.Component {
                   <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                          <Link class="nav-link" to={"/"}>Home</Link>
+                          <Link class="nav-link" to={"/egw-reactjs/"}>Home</Link>
                       </li> 
                       <li class="nav-item">
-                          <Link class="nav-link" to={"/slideshow/"+this.state.selectedVoice}>Slideshow</Link>
+                          <Link class="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
                       </li>   
                       <li class="nav-item">
-                          <VoicesList selectedVoice={this.handleOnChange.bind(this)}/>
+                          <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
                       </li>
                      
                     </ul>
                   </div>  
                 </nav>
-              <Route exact path="/"  
+              <Route exact path="/egw-reactjs/"  
                      render={(props) => (
                         <App {...props} selectedVoice={this.state.selectedVoice} />
                       )} 
               />
-              <Route path="/slideshow:selectedVoice" component={Slideshow} />
+              <Route exact path="/egw-reactjs/slideshow/"  
+                     render={(props) => (
+                        <Slideshow {...props} selectedVoice={this.state.selectedVoice} />
+                      )} 
+              />
             </div>
           </Router>
         </div>

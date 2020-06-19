@@ -1,5 +1,7 @@
 import React from 'react';
 import TextToSpeech from '../TextToSpeech/TextToSpeech';
+import './paragraph.css';
+
 class Paragraph extends React.Component {
   constructor(props) {
     super(props);
@@ -42,7 +44,7 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><p>{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</p><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
+        <div><h2 class="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
 
       );
     }

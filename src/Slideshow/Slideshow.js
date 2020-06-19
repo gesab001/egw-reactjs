@@ -1,4 +1,5 @@
 import React from 'react';
+import Slides from './Slides';
 
 
 class Slideshow extends React.Component {
@@ -7,81 +8,49 @@ class Slideshow extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      selected_voice: null,
-      items: [],
-      synth: null,
-      voices: null,
-      
-    };
-    
+      items: []
+    }; 
   }
+
   componentDidMount() {
-        var available_voices;
-        var synth;
-            
-        // list of languages is probably not loaded, wait for it
-        if(window.speechSynthesis.getVoices().length === 0) {
-	        window.speechSynthesis.addEventListener('voiceschanged', function() {
-		        available_voices = window.speechSynthesis.getVoices();
-                synth = window.speechSynthesis;
-                this.setState({
-                              isLoaded: true,
-                              items: available_voices,
-                              selected_voice: 27,
-                              synth: synth,
-                              voices: available_voices 
-                              
-                });
-	        });
+
+    const url = "https://gesab001.github.io/assets/egw/booklist.json";
+    fetch(url)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }
-        else {
-	        available_voices = window.speechSynthesis.getVoices();
-            synth = window.speechSynthesis;
-            this.setState({
-              isLoaded: true,
-              items: available_voices,
-              selected_voice: 27,
-              synth: synth,
-              voices: available_voices
-            });
-        }
-        
+      )
   }
 
-  handleChange(event) {
-        let value = event.target.value;
-            this.setState({
-              isLoaded: true,
-              selected_voice: value
-            });
-  }
-
-  playText(text, index){
-      var utterThis = new SpeechSynthesisUtterance();
-      utterThis.text = text;
-      utterThis.voice = this.state.voices[index] ;
-      utterThis.pitch = 0;
-      utterThis.rate = 0.7;
-      this.state.synth.speak(utterThis);
-      utterThis.addEventListener('mark', function(event) { 
-          console.log('A mark was reached: ' + event.name);
-        });
-  }
-
-  cancelText(){
-    this.state.synth.cancel();
-  }
-  
-
-  
   render() {
+    const { error, isLoaded, items } = this.state;
+
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
 
       return (
-        <div> test
-        </div>
+        <Slides selectedVoice={this.props.selectedVoice} booklist={items}/>
+
       );
+    }
   }
 }
-
-
 export default Slideshow;

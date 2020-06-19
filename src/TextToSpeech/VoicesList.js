@@ -48,7 +48,7 @@ class VoicesList extends React.Component {
         
   }
 
-  handleChange=(e)=> {
+  updateSelectedVoice=(e)=> {
         let value = e.target.value;
             this.setState({
               isLoaded: true,
@@ -61,7 +61,7 @@ class VoicesList extends React.Component {
   render() {
 
       return (
-        <div><select onChange={this.handleChange.bind(this)}> {this.state.items.map((value,index) =>  {
+        <div><select onChange={this.updateSelectedVoice.bind(this)}> {this.state.items.map((value,index) =>  {
               if (index===27){
                 return <option selected="selected" value={index}>{value.name}</option>
               }else{
