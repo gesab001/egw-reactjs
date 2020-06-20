@@ -9,7 +9,6 @@ class Slideshow extends React.Component {
       error: null,
       isLoaded: false,
       items: [],
-      imagelist: null
     }; 
   }
 
@@ -35,31 +34,10 @@ class Slideshow extends React.Component {
           });
         }
       )
-
-  const url1 = "https://gesab001.github.io/assets/egw/images/imagelist.json";
-    fetch(url1)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            imagelist: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
   }
 
   render() {
-    const { error, isLoaded, items, imagelist } = this.state;
+    const { error, isLoaded, items } = this.state;
 
 
     if (error) {
@@ -69,7 +47,7 @@ class Slideshow extends React.Component {
     } else {
 
       return (
-        <Slides selectedVoice={this.props.selectedVoice} imagelist={imagelist} booklist={items}/>
+        <Slides selectedVoice={this.props.selectedVoice} booklist={items}/>
 
       );
     }

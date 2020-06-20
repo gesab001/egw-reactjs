@@ -19,12 +19,41 @@ class Slides extends React.Component {
     });
   }
 
-  render() {
-    this.state.booklist = this.props.booklist;
-    this.state.imagelist = this.props.imagelist;
-    const items = this.state.booklist;
+ componentDidMount() {
 
-    return (
+    const url = "https://gesab001.github.io/assets/egw/images/imagelist.json";
+    fetch(url)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            imagelist: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+
+    const { error, isLoaded, items, imagelist } = this.state;
+    this.state.booklist = this.props.booklist;
+
+    if (error) {
+      return <div>Error: {error.message}</div>; 
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+   return (
          <div>
              <div id="demo" class="carousel slide" data-interval="false">
                   <ul class="carousel-indicators">
@@ -43,9 +72,15 @@ class Slides extends React.Component {
                             <p>Read now</p>
                           </div>   
                         </div>
- {this.state.booklist.map((value,index) =>  {
+        {this.state.booklist.map((value,index) =>  {
+             const bookcode = value.bookcode;
+             var imageurl = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
+             try {
+                 imageurl = imagelist[bookcode][0];
+                }catch(err){
+              }
                        return <div class="carousel-item">
-                                 <img class="d-block w-100" src={this.state.imagelist["DA"][0]} alt="New York" />
+                                 <img class="d-block w-100" src={imageurl} alt="New York" />
                                  <div class="carousel-caption">
                                       <h1 class="shadow">{value.title}</h1>
                                       <Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
@@ -64,6 +99,9 @@ class Slides extends React.Component {
                    
              </div>
          </div>);
+
+    }
+  
   }
 }
 
