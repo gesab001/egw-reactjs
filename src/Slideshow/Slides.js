@@ -47,6 +47,7 @@ class Slides extends React.Component {
 
     const { error, isLoaded, items, imagelist } = this.state;
     this.state.booklist = this.props.booklist;
+    const default_image = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
 
     if (error) {
       return <div>Error: {error.message}</div>; 
@@ -54,7 +55,7 @@ class Slides extends React.Component {
       return <div>Loading...</div>;
     } else {
    return (
-         <div>
+        
              <div id="demo" class="carousel slide" data-interval="false">
                   <ul class="carousel-indicators">
 <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -64,9 +65,9 @@ class Slides extends React.Component {
                    
                   </ul>
 
-                    <div class="carousel-inner">
-   <div class="carousel-item active">
-                          <img class="d-block w-100" src="https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg" alt="Los Angeles"/>
+                  <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img class="d-block w-100" src={default_image} alt="Los Angeles"/>
                           <div class="carousel-caption">
                             <h3>today</h3>
                             <p>Read now</p>
@@ -74,7 +75,7 @@ class Slides extends React.Component {
                         </div>
         {this.state.booklist.map((value,index) =>  {
              const bookcode = value.bookcode;
-             var imageurl = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
+             var imageurl = default_image;
              try {
                  var totalimages = imagelist[bookcode].length;
                  var randomindex = Math.floor((Math.random() * totalimages) + 0);
@@ -99,8 +100,7 @@ class Slides extends React.Component {
                     <span class="carousel-control-next-icon"></span>
                   </a>
                    
-             </div>
-         </div>);
+             </div>);
 
     }
   

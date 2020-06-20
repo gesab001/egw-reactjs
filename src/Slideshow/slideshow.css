@@ -5,3 +5,27 @@
   font-weight: bolder;
   font-size: 2vw;
 }
+
+
+
+@media (min-width: 300px)  { 
+  #demo {
+    margin-top: 13%;
+ } 
+}
+@media (min-width: 768px) { 
+  #demo {
+    margin-top: 10%;
+ } 
+}
+@media (min-width: 992px) { 
+  #demo {
+    margin-top: 10%;
+ } 
+}
+@media (min-width: 1200px) { 
+  #demo {
+    margin-top: 3%;
+ } 
+}
+
