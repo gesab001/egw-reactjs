@@ -46,25 +46,21 @@ class Index extends React.Component {
   render() {
 
       return (
-        <div>      
+        <div class="container-fluid">      
           <Router>
             <div>
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark  fixed-top">
+                <nav class="navbar bg-dark navbar-dark  fixed-top">
 
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
+                 
+                
+                    <ul class="nav">
                       <li class="nav-item">
                           <Link class="nav-link" to={"/egw-reactjs/"}>Home</Link>
                       </li> 
                       <li class="nav-item">
                           <Link class="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
                       </li>   
-                      <li class="nav-item">
-                          <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
-                      </li>
+                    
                      <li class="nav-item">
                           <button onClick={this.biggerFont.bind(this)}>+</button>
                       </li>
@@ -75,8 +71,9 @@ class Index extends React.Component {
 
                       </li>                    
                     </ul>
-                  </div>  
+
                 </nav>
+  <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
               <Route exact path="/egw-reactjs/"  
                      render={(props) => (
                         <App {...props} selectedVoice={this.state.selectedVoice} />

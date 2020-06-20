@@ -26,8 +26,8 @@ class List extends React.Component {
     return (
          <div>
  
-                <div style={mystyle} class="container-fluid">  {this.state.booklist.map((value,index) =>  {
-                      return <div ><h1>{value.title}</h1><Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div>
+                <div  class="card-columns">  {this.state.booklist.map((value,index) =>  {
+                      return <div class="card" ><h5 class="card-header">{value.title}</h5><div class="card-body bg-secondary"><Paragraph class="card-text" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div></div>
                   })}</div>
          </div>);
   }

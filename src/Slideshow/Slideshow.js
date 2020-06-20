@@ -47,7 +47,7 @@ class Slideshow extends React.Component {
     } else {
 
       return (
-        <Slides selectedVoice={this.props.selectedVoice} booklist={items}/>
+        <div class="container-fluid"><Slides selectedVoice={this.props.selectedVoice} booklist={items}/></div>
 
       );
     }

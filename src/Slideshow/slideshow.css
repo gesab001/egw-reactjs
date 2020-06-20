@@ -7,7 +7,6 @@
 }
 
 
-
 @media (min-width: 300px)  { 
   #demo {
     margin-top: 13%;
@@ -29,3 +28,9 @@
  } 
 }
 
+.shadow {
+   color: white;
+  text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+  font-weight: bolder;
+  font-size: 2vw;
+}

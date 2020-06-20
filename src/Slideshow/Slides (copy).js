@@ -86,7 +86,7 @@ class Slides extends React.Component {
                                  <img class="d-block w-100" src={imageurl} alt="New York" />
                                  <div class="carousel-caption">
                                       <h1 class="shadow">{value.title}</h1>
-                                      <Paragraph class="shadow" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
+                                      <Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
                                  </div> 
                              </div>
                     })}
