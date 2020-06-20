@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/egw-reactjs/static/css/main.b92b1944.chunk.css",
-    "main.js": "/egw-reactjs/static/js/main.9bdbd7ea.chunk.js",
-    "main.js.map": "/egw-reactjs/static/js/main.9bdbd7ea.chunk.js.map",
+    "main.css": "/egw-reactjs/static/css/main.2212e899.chunk.css",
+    "main.js": "/egw-reactjs/static/js/main.16403780.chunk.js",
+    "main.js.map": "/egw-reactjs/static/js/main.16403780.chunk.js.map",
     "runtime-main.js": "/egw-reactjs/static/js/runtime-main.446343c6.js",
     "runtime-main.js.map": "/egw-reactjs/static/js/runtime-main.446343c6.js.map",
     "static/js/2.c731f9a4.chunk.js": "/egw-reactjs/static/js/2.c731f9a4.chunk.js",
     "static/js/2.c731f9a4.chunk.js.map": "/egw-reactjs/static/js/2.c731f9a4.chunk.js.map",
     "index.html": "/egw-reactjs/index.html",
-    "precache-manifest.08731f033b8e2d4a282d8bf16269f5fc.js": "/egw-reactjs/precache-manifest.08731f033b8e2d4a282d8bf16269f5fc.js",
+    "precache-manifest.35f163b5ca2efcb0d0fc31132ec0867f.js": "/egw-reactjs/precache-manifest.35f163b5ca2efcb0d0fc31132ec0867f.js",
     "service-worker.js": "/egw-reactjs/service-worker.js",
-    "static/css/main.b92b1944.chunk.css.map": "/egw-reactjs/static/css/main.b92b1944.chunk.css.map",
+    "static/css/main.2212e899.chunk.css.map": "/egw-reactjs/static/css/main.2212e899.chunk.css.map",
     "static/js/2.c731f9a4.chunk.js.LICENSE.txt": "/egw-reactjs/static/js/2.c731f9a4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.446343c6.js",
     "static/js/2.c731f9a4.chunk.js",
-    "static/css/main.b92b1944.chunk.css",
-    "static/js/main.9bdbd7ea.chunk.js"
+    "static/css/main.2212e899.chunk.css",
+    "static/js/main.16403780.chunk.js"
   ]
 }
