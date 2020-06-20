@@ -2,6 +2,7 @@ import React from 'react';
 import Paragraph from '../Paragraph/Paragraph';
 import VoicesList from '../TextToSpeech/VoicesList';
 import './list.css';
+import TextToSpeech from '../TextToSpeech/TextToSpeech';
 class List extends React.Component {
  constructor(props) {
     super(props);
@@ -27,7 +28,7 @@ class List extends React.Component {
          <div>
  
                 <div  class="card-columns">  {this.state.booklist.map((value,index) =>  {
-                      return <div class="card" ><h5 class="card-header">{value.title}</h5><div class="card-body bg-secondary"><Paragraph class="card-text" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div></div>
+                      return <div class="card" ><div class="card-header"><h5 class="card-title"> {value.title}</h5></div><div class="card-body bg-secondary"><Paragraph class="card-text" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div></div>
                   })}</div>
          </div>);
   }

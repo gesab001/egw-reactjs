@@ -61,19 +61,20 @@ class Index extends React.Component {
                           <Link class="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
                       </li>   
                     
-                     <li class="nav-item">
+                   
+                        <li class="nav-item">
+ <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
+                      </li>        
+  <li class="nav-item">
                           <button onClick={this.biggerFont.bind(this)}>+</button>
                       </li>
                      <li class="nav-item">
                           <button onClick={this.smallerFont.bind(this)}>-</button>
-                      </li>
-                        <li class="nav-item">
-
-                      </li>                    
+                      </li>            
                     </ul>
 
                 </nav>
-  <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
+ 
               <Route exact path="/egw-reactjs/"  
                      render={(props) => (
                         <App {...props} selectedVoice={this.state.selectedVoice} />

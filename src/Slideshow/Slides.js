@@ -56,7 +56,7 @@ class Slides extends React.Component {
     } else {
    return (
         
-             <div id="demo" class="carousel slide" data-interval="false">
+             <div id="demo" class="carousel slide" keyboard="true" data-wrap="false" data-interval="false">
                   <ul class="carousel-indicators">
 <li data-target="#demo" data-slide-to="0" class="active"></li>
 {this.state.booklist.map((value,index) =>  {
