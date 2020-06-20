@@ -20,12 +20,14 @@ class List extends React.Component {
 
   render() {
     this.state.booklist = this.props.booklist;
-
+    const mystyle = {
+      backgroundColor: "DodgerBlue",
+    };
     return (
          <div>
  
-                <div class="container-fluid">  {this.state.booklist.map((value,index) =>  {
-                      return <div><h1>{value.title}</h1><Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div>
+                <div style={mystyle} class="container-fluid">  {this.state.booklist.map((value,index) =>  {
+                      return <div ><h1>{value.title}</h1><Paragraph selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/></div>
                   })}</div>
          </div>);
   }
