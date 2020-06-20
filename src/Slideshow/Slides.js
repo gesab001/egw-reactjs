@@ -76,7 +76,9 @@ class Slides extends React.Component {
              const bookcode = value.bookcode;
              var imageurl = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
              try {
-                 imageurl = imagelist[bookcode][0];
+                 var totalimages = imagelist[bookcode].length;
+                 var randomindex = Math.floor((Math.random() * totalimages) + 0);
+                 imageurl = imagelist[bookcode][randomindex];
                 }catch(err){
               }
                        return <div class="carousel-item">
