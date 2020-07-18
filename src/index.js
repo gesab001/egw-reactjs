@@ -46,29 +46,29 @@ class Index extends React.Component {
   render() {
 
       return (
-        <div class="container-fluid">      
+        <div className="container-fluid">      
           <Router>
             <div>
-                <nav class="navbar bg-dark navbar-dark  fixed-top">
+                <nav className="navbar bg-dark navbar-dark  fixed-top">
 
                  
                 
-                    <ul class="nav">
-                      <li class="nav-item">
-                          <Link class="nav-link" to={"/egw-reactjs/"}>Home</Link>
+                    <ul className="nav">
+                      <li className="nav-item">
+                          <Link className="nav-link" to={"/egw-reactjs/"}>Home</Link>
                       </li> 
-                      <li class="nav-item">
-                          <Link class="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
+                      <li className="nav-item">
+                          <Link className="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
                       </li>   
                     
                    
-                        <li class="nav-item">
+                        <li className="nav-item">
  <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
                       </li>        
-  <li class="nav-item">
+  <li className="nav-item">
                           <button onClick={this.biggerFont.bind(this)}>+</button>
                       </li>
-                     <li class="nav-item">
+                     <li className="nav-item">
                           <button onClick={this.smallerFont.bind(this)}>-</button>
                       </li>            
                     </ul>

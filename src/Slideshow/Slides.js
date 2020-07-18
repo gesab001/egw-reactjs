@@ -1,6 +1,5 @@
 import React from 'react';
 import Paragraph from '../Paragraph/Paragraph';
-import VoicesList from '../TextToSpeech/VoicesList';
 import './slideshow.css';
 class Slides extends React.Component {
  constructor(props) {
@@ -45,8 +44,8 @@ class Slides extends React.Component {
 
   render() {
 
-    const { error, isLoaded, items, imagelist } = this.state;
-    this.state.booklist = this.props.booklist;
+    const { error, isLoaded, imagelist } = this.state;
+    this.setState({booklist: this.props.booklist});
     const default_image = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
 
     if (error) {
@@ -111,10 +110,10 @@ function getCurrentID(bookcode){
 
     var date1 = new Date();
     var date2 = new Date(2018, 5, 22);
-    if (bookcode=="DA"){
+    if (bookcode==="DA"){
        date2 = new Date(2016, 11, 30);
     }
-    if (bookcode=="CL"){
+    if (bookcode==="CL"){
        date2 = new Date(2016, 4,15);
     }
     var difference = date1.getTime() - date2.getTime();

@@ -48,7 +48,7 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><h2 style={mystyle} class="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
+        <div><h2 style={mystyle} className="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
 
       );
     }

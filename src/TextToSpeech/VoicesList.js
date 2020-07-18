@@ -24,14 +24,7 @@ class VoicesList extends React.Component {
 	        window.speechSynthesis.addEventListener('voiceschanged', function() {
 		        available_voices = window.speechSynthesis.getVoices();
                 synth = window.speechSynthesis;
-                this.setState({
-                              isLoaded: true,
-                              items: available_voices,
-                              selected_voice: 27,
-                              synth: synth,
-                              voices: available_voices 
-                              
-                });
+              
 	        });
         }
         else {

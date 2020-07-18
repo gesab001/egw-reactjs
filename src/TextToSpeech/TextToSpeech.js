@@ -59,7 +59,8 @@ class TextToSpeech extends React.Component {
   playText(text, index){
       var utterThis = new SpeechSynthesisUtterance();
       utterThis.text = text;
-      utterThis.voice = this.state.voices[index] ;
+      //utterThis.voice = this.state.voices[index] ;
+      utterThis.lang = 'en-US';
       utterThis.pitch = 0;
       utterThis.rate = 0.7;
       this.state.synth.speak(utterThis);
