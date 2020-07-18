@@ -5,7 +5,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Slideshow from './Slideshow/Slideshow';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import VoicesList from './TextToSpeech/VoicesList';
+
 
 class Index extends React.Component {
  constructor(props) {
@@ -61,10 +61,7 @@ class Index extends React.Component {
                           <Link className="nav-link" to={"/egw-reactjs/slideshow"}>Slideshow</Link>
                       </li>   
                     
-                   
-                        <li className="nav-item">
- <VoicesList selectedVoice={this.updateSelectedVoice.bind(this)}/>
-                      </li>        
+                     
   <li className="nav-item">
                           <button onClick={this.biggerFont.bind(this)}>+</button>
                       </li>

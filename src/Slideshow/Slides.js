@@ -45,7 +45,6 @@ class Slides extends React.Component {
   render() {
 
     const { error, isLoaded, imagelist } = this.state;
-    this.setState({booklist: this.props.booklist});
     const default_image = "https://resources.stuff.co.nz/content/dam/images/1/p/i/h/p/2/image.related.StuffLandscapeSixteenByNine.710x400.1pj19x.png/1524876169700.jpg";
 
     if (error) {
@@ -55,24 +54,24 @@ class Slides extends React.Component {
     } else {
    return (
         
-             <div id="demo" class="carousel slide" keyboard="true" data-wrap="false" data-interval="false">
-                  <ul class="carousel-indicators">
-<li data-target="#demo" data-slide-to="0" class="active"></li>
-{this.state.booklist.map((value,index) =>  {
-                       return <li data-target="#demo" data-slide-to={index}></li>
+             <div id="demo" className="carousel slide" keyboard="true" data-wrap="false" data-interval="false">
+                  <ul className="carousel-indicators">
+<li data-target="#demo" data-slide-to="0" className="active"></li>
+{this.props.booklist.map((value,index) =>  {
+                       return <li data-target="#demo" data-slide-to={index} key={index}></li>
                     })}
                    
                   </ul>
 
-                  <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100" src={default_image} alt="Los Angeles"/>
-                          <div class="carousel-caption">
+                  <div className="carousel-inner">
+                        <div className="carousel-item active">
+                          <img className="d-block w-100" src={default_image} alt="Los Angeles"/>
+                          <div className="carousel-caption">
                             <h3>today</h3>
                             <p>Read now</p>
                           </div>   
                         </div>
-        {this.state.booklist.map((value,index) =>  {
+        {this.props.booklist.map((value,index) =>  {
              const bookcode = value.bookcode;
              var imageurl = default_image;
              try {
@@ -81,22 +80,22 @@ class Slides extends React.Component {
                  imageurl = imagelist[bookcode][randomindex];
                 }catch(err){
               }
-                       return <div class="carousel-item">
-                                 <img class="d-block w-100" src={imageurl} alt="New York" />
-                                 <div class="carousel-caption">
-                                      <h1 class="shadow">{value.title}</h1>
-                                      <Paragraph class="shadow" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
+                       return <div className="carousel-item" key={index}>
+                                 <img className="d-block w-100" src={imageurl} alt="New York" />
+                                 <div className="carousel-caption">
+                                      <h1 className="shadow">{value.title}</h1>
+                                      <Paragraph className="shadow" selectedVoice={this.props.selectedVoice} bookcode={value.bookcode} id={getCurrentID(value.bookcode)%value.total}/>
                                  </div> 
                              </div>
                     })}
                      
                        
                       </div>
-                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                  <a className="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span className="carousel-control-prev-icon"></span>
                   </a>
-                  <a class="carousel-control-next" href="#demo" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                  <a className="carousel-control-next" href="#demo" data-slide="next">
+                    <span className="carousel-control-next-icon"></span>
                   </a>
                    
              </div>);

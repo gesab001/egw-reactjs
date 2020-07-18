@@ -24,28 +24,17 @@ class TextToSpeech extends React.Component {
 	        window.speechSynthesis.addEventListener('voiceschanged', function() {
 		        available_voices = window.speechSynthesis.getVoices();
                 synth = window.speechSynthesis;
-                this.setState({
-                              isLoaded: true,
-                              items: available_voices,
-                              selected_voice: 27,
-                              synth: synth,
-                              voices: available_voices 
-                              
-                });
 	        });
         }
-        else {
-	        available_voices = window.speechSynthesis.getVoices();
-            synth = window.speechSynthesis;
-            this.setState({
-              isLoaded: true,
-              items: available_voices,
-              selected_voice: 27,
-              synth: synth,
-              voices: available_voices
-            });
-        }
-        
+        available_voices = window.speechSynthesis.getVoices();
+        synth = window.speechSynthesis;
+        this.setState({
+          isLoaded: true,
+          items: available_voices,
+          selected_voice: 27,
+          synth: synth,
+          voices: available_voices
+        });
   }
 
   handleChange(event) {
@@ -57,6 +46,7 @@ class TextToSpeech extends React.Component {
   }
 
   playText(text, index){
+      alert(text);
       var utterThis = new SpeechSynthesisUtterance();
       utterThis.text = text;
       //utterThis.voice = this.state.voices[index] ;
@@ -64,12 +54,10 @@ class TextToSpeech extends React.Component {
       utterThis.pitch = 0;
       utterThis.rate = 0.7;
       this.state.synth.speak(utterThis);
-      utterThis.addEventListener('mark', function(event) { 
-          console.log('A mark was reached: ' + event.name);
-        });
   }
 
   cancelText(){
+    alert("stop");
     this.state.synth.cancel();
   }
   
@@ -79,8 +67,8 @@ class TextToSpeech extends React.Component {
 
       return (
         <div>
-          <button onClick={() => this.playText(this.props.text, this.props.selectedVoice)}>play</button>
-          <button onClick={() => this.cancelText()}>stop</button>  
+          <button onClick={() => this.playText(this.props.text, this.props.selectedVoice)} type="button" className="btn btn-primary">play</button>
+          <button type="button" className="btn btn-danger" onClick={() => this.cancelText()}>stop</button>  
         </div>
       );
   }
