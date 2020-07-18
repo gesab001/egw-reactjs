@@ -46,14 +46,27 @@ class TextToSpeech extends React.Component {
   }
 
   playText(text, index){
+      var available_voices;
+      var synth;
+        
+      // list of languages is probably not loaded, wait for it
+      if(window.speechSynthesis.getVoices().length === 0) {
+        window.speechSynthesis.addEventListener('voiceschanged', function() {
+	        available_voices = window.speechSynthesis.getVoices();
+            synth = window.speechSynthesis;
+        });
+      }
+      available_voices = window.speechSynthesis.getVoices();
+      synth = window.speechSynthesis;
       alert(text);
       var utterThis = new SpeechSynthesisUtterance();
       utterThis.text = text;
-      //utterThis.voice = this.state.voices[index] ;
+      //utterThis.voice = available_voices[0] ;
       utterThis.lang = 'en-US';
       utterThis.pitch = 0;
       utterThis.rate = 0.7;
-      this.state.synth.speak(utterThis);
+      synth.speak(utterThis);
+      this.setState({synth: synth});
   }
 
   cancelText(){
