@@ -39,7 +39,7 @@ class Paragraph extends React.Component {
 
   removeNumbers(word){
      console.log("remove numbers"); 
-     const withoutNumbers = word.replace(/\s\d+\s/g, '')
+     const withoutNumbers = word.replace(/\s+\d+\s+/g, ' ')
      return withoutNumbers;
   }
   
