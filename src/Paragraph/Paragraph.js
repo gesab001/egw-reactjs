@@ -8,7 +8,8 @@ class Paragraph extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      word: null
     };
   }
 
@@ -20,7 +21,8 @@ class Paragraph extends React.Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result
+            items: result,
+            word: this.removeNumbers(result.word)
           });
         },
         // Note: it's important to handle errors here
@@ -35,6 +37,12 @@ class Paragraph extends React.Component {
       )
   }
 
+  removeNumbers(word){
+     console.log("remove numbers"); 
+     const withoutNumbers = word.replace(/\s\d+\s/g, '')
+     return withoutNumbers;
+  }
+  
   render() {
     const { error, isLoaded, items } = this.state;
     const fontSize = localStorage.getItem("fontsize");
@@ -48,7 +56,7 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><h2 style={mystyle} className="shadow">{items.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={items.word}/></div>
+        <div><h2 style={mystyle} className="shadow">{this.state.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech selectedVoice={this.props.selectedVoice} text={this.state.word}/></div>
 
       );
     }
