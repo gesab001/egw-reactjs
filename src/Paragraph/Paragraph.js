@@ -14,7 +14,7 @@ class Paragraph extends React.Component {
   }
 
   componentDidMount() {
-    const url = "https://gesab001.github.io/assets/egw/book_"+this.props.bookcode+"_id_"+this.props.id+".json";
+    const url = "https://gesab001.github.io/assets/egw/"+this.props.bookcode+"/"+"book_"+this.props.bookcode+"_id_"+this.props.id+".json";
     fetch(url)
       .then(res => res.json())
       .then(
