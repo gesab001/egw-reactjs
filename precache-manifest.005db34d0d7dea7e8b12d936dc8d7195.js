@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "be0eda6580fd6e4551829b886d118ab2",
+    "revision": "2a9f824cb450352e571f9bfefc5d0c2e",
     "url": "/egw-reactjs/index.html"
   },
   {
