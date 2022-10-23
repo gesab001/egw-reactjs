@@ -22,7 +22,7 @@ class Paragraph extends React.Component {
           this.setState({
             isLoaded: true,
             items: result,
-            word: this.removeNumbers(result.word)
+            word: result.word//this.removeNumbers(result.word)
           });
         },
         // Note: it's important to handle errors here
