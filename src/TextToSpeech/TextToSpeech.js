@@ -7,10 +7,11 @@ function play(originalText, id, textLength){
   var wordIndex = 0;
 
   document.getElementById(id).innerHTML = originalText;
-  var text = document.getElementById(id).innerHTML;
-  var textsplit = text.split(" ");
+  //var text = document.getElementById(id).innerHTML;
+  console.log("original text: " + originalText);
+  var textsplit = originalText.split(" ");
   console.log("textsplit: " + textsplit);
-  const utterThis = new SpeechSynthesisUtterance(text);
+  const utterThis = new SpeechSynthesisUtterance(originalText);
 
   
   utterThis.addEventListener('boundary', (event) => {

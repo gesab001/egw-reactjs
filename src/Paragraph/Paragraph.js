@@ -46,14 +46,14 @@ function getWordwithoutNumbers(word){
 			   }else{
 				 let pattern = /\d+/g;
 				 var pagenumber = item.match(pattern); 
-				 word = word.replace(pagenumber, " " );
+				 word = word.replace(pagenumber, "" );
 
 			   };
 			}
 		}catch(e){
 		  //alert(word + e);
 		}
-		return word;
+		return word.trim().replace(/-/g, ' ').replace(/\s\s+/g, ' ');
 }
 class Paragraph extends React.Component {
   constructor(props) {
@@ -108,7 +108,7 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><h2 id={items.bookcode+items.page+items.paragraph}style={mystyle} className="shadow">{this.state.word} ({items.bookcode}, p.{items.page}, par.{items.paragraph})</h2><TextToSpeech id={items.bookcode+items.page+items.paragraph} selectedVoice={this.props.selectedVoice} text={this.state.word}/></div>
+        <div><h2 id={items.bookcode+items.page+items.paragraph}style={mystyle} className="shadow">{this.state.word}</h2><p style={mystyle} className="shadow"> ({items.bookcode}, p.{items.page}, par.{items.paragraph})</p><TextToSpeech id={items.bookcode+items.page+items.paragraph} selectedVoice={this.props.selectedVoice} text={this.state.word}/></div>
 
       );
     }
