@@ -62,12 +62,23 @@ class Paragraph extends React.Component {
       error: null,
       isLoaded: false,
       items: [],
-      word: null
+      word: null,
+	  jsonId: null,
     };
   }
 
+  componentWillMount(){
+	this.setState({jsonId: this.props.id});
+	  
+  }
   componentDidMount() {
-    const url = "https://gesab001.github.io/assets/egw/"+this.props.bookcode+"/"+"book_"+this.props.bookcode+"_id_"+this.props.id+".json";
+	console.log("this.props.id: " + this.props.id);
+	console.log("this.state.jsonId: " + this.state.jsonId);
+    this.getWordJson(this.state.jsonId);
+  }
+
+  getWordJson(id){
+    const url = "https://gesab001.github.io/assets/egw/"+this.props.bookcode+"/"+"book_"+this.props.bookcode+"_id_"+id+".json";
     fetch(url)
       .then(res => res.json())
       .then(
@@ -84,13 +95,34 @@ class Paragraph extends React.Component {
         (error) => {
           this.setState({
             isLoaded: true,
-            error
+            error: error,
+			jsonId: parseInt(this.state.jsonId) - 1
           });
         }
-      )
+      )	  
   }
-
  
+   showPreviousParagraph(){
+	   console.log("this.state.jsonId before change: " + this.state.jsonId);
+
+	   var index = parseInt(this.state.jsonId) - 1;
+	   if (index<0){
+	      index = 0;
+	   }
+	   console.log("index: " + index);
+	   this.setState({jsonId: index.toString()});
+	   console.log("this.state.jsonId: " + this.state.jsonId);
+	   this.getWordJson(index);
+	   
+   }
+   
+    showNextParagraph(){
+	   var index = parseInt(this.state.jsonId) + 1;
+	   this.setState({jsonId: index.toString()});
+	   this.getWordJson(index);
+	   
+   }
+   
    removeNumbers(word){
       return getWordwithoutNumbers(word);
    }
@@ -108,7 +140,9 @@ class Paragraph extends React.Component {
     } else {
       return (
 
-        <div><h2 id={items.bookcode+items.page+items.paragraph}style={mystyle} className="shadow">{this.state.word}</h2><p style={mystyle} className="shadow"> ({items.bookcode}, p.{items.page}, par.{items.paragraph})</p><TextToSpeech id={items.bookcode+items.page+items.paragraph} selectedVoice={this.props.selectedVoice} text={this.state.word}/></div>
+        <div>          <button onClick={() => this.showPreviousParagraph()} type="button" className="btn btn-primary">BACK</button>
+		<button onClick={() => this.showNextParagraph()} type="button" className="btn btn-primary">NEXT</button>
+		<h2 id={items.bookcode+items.page+items.paragraph}style={mystyle} className="shadow">{this.state.word}</h2><p style={mystyle} className="shadow"> ({items.bookcode}, p.{items.page}, par.{items.paragraph})</p><TextToSpeech id={items.bookcode+items.page+items.paragraph} selectedVoice={this.props.selectedVoice} text={this.state.word}/></div>
 
       );
     }
