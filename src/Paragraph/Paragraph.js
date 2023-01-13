@@ -53,7 +53,24 @@ function getWordwithoutNumbers(word){
 		}catch(e){
 		  //alert(word + e);
 		}
-		return word.trim().replace(/-/g, ' ').replace(/\s\s+/g, ' ');
+		word = word.replace(/--/g, " ");
+		var wordList = word.split(" ");
+		console.log("wordList: " + wordList);
+		var cleanWordList = [];
+		for (var x=0; x<wordList.length; x++){
+			var word = wordList[x].trim();
+			console.log("word:" + word);
+			if (word===" " || word=="." || word===""){
+				
+				
+			}else{
+								cleanWordList.push(word);
+
+			}
+		}
+		var finalWord = cleanWordList.join(" ");
+		console.log("cleanWordList: " + cleanWordList);
+		return finalWord;
 }
 class Paragraph extends React.Component {
   constructor(props) {
